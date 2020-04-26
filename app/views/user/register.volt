@@ -33,9 +33,9 @@
         </div>
         <div class="form-group">
             <label for="gender">Gender</label><br>
-            <input type="radio" name="gender" id="male" value="male">
+            <input type="radio" name="gender" id="male" value="Male">
             <label for="gender">Male</label><br>
-            <input type="radio" name="gender" id="female" value="female">
+            <input type="radio" name="gender" id="female" value="Female">
             <label for="gender">Female</label><br>
         </div>
         <div class="form-group row">
