@@ -21,11 +21,11 @@ Member List
                 <th><?= $user->USER_NAME ?></th>
                 <th><?= $user->USER_BIRTHDATE ?></th>
                 <th><?= $user->USER_GENDER ?></th>
+                <?php if ($user->USER_CATEGORY != 0) { ?>
                 <th>
-                    <?php if ($user->USER_CATEGORY != 0) { ?>
-                        <?= $user->USER_CATEGORY ?>
-                    <?php } ?>
+                    <?= $user->USER_CATEGORY ?>
                 </th>
+                    <?php } ?>
             </tr>
             <?php } ?>
         </tbody>

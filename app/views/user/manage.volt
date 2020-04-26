@@ -21,11 +21,11 @@ Member List
                 <th>{{user.USER_NAME}}</th>
                 <th>{{user.USER_BIRTHDATE}}</th>
                 <th>{{user.USER_GENDER}}</th>
+                {% if user.USER_CATEGORY!=0 %}
                 <th>
-                    {% if user.USER_CATEGORY!=0 %}
-                        {{user.USER_CATEGORY}}
-                    {% endif %}
+                    {{user.USER_CATEGORY}}
                 </th>
+                    {% endif %}
             </tr>
             {% endfor %}
         </tbody>

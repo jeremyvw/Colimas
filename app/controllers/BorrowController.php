@@ -16,7 +16,7 @@ class BorrowController extends ControllerBase
 
     public function manageAction()
     {
-        $this->view->books = Borrows::find();
+        $this->view->borrows = Borrows::find();
     }
 
     public function detailAction($id)

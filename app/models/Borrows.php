@@ -1,10 +1,12 @@
 <?php
 
+namespace App\Models;
+
 use Phalcon\Mvc\Model;
 use Phalcon\Validation;
 use Phalcon\Validation\Validator\Uniqueness;
 
-class Borrows extends Models
+class Borrows extends Model
 {
     public $BORROW_ID;
     public $BOOK_ID;
