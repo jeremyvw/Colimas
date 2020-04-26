@@ -16,17 +16,15 @@ Member List
         </thead>
         <tbody>
             {% for user in users %}
-            <tr class="center aligned">
-                <th>{{user.USER_ID}}</th>
-                <th>{{user.USER_NAME}}</th>
-                <th>{{user.USER_BIRTHDATE}}</th>
-                <th>{{user.USER_GENDER}}</th>
                 {% if user.USER_CATEGORY!=0 %}
-                <th>
-                    {{user.USER_CATEGORY}}
-                </th>
-                    {% endif %}
-            </tr>
+                    <tr class="center aligned">
+                        <th>{{user.USER_ID}}</th>
+                        <th>{{user.USER_NAME}}</th>
+                        <th>{{user.USER_BIRTHDATE}}</th>
+                        <th>{{user.USER_GENDER}}</th>
+                        <th>{{user.USER_CATEGORY}}</th>
+                    </tr>
+                {% endif %}
             {% endfor %}
         </tbody>
     </table>

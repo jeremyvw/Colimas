@@ -16,17 +16,17 @@ Member List
         </thead>
         <tbody>
             <?php foreach ($users as $user) { ?>
+            <?php if ($user->USER_CATEGORY != 0) { ?>
             <tr class="center aligned">
                 <th><?= $user->USER_ID ?></th>
                 <th><?= $user->USER_NAME ?></th>
                 <th><?= $user->USER_BIRTHDATE ?></th>
                 <th><?= $user->USER_GENDER ?></th>
-                <?php if ($user->USER_CATEGORY != 0) { ?>
                 <th>
                     <?= $user->USER_CATEGORY ?>
                 </th>
-                    <?php } ?>
             </tr>
+            <?php } ?>
             <?php } ?>
         </tbody>
     </table>
