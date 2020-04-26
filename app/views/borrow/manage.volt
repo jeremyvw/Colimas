@@ -1,5 +1,5 @@
 {% block title %}
-Member List
+Requests
 {% endblock %}
 
 {% block content %}
@@ -14,6 +14,7 @@ Member List
                 <th>Expected Return</th>
                 <th>Return Date</th>
                 <th>Status</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -26,6 +27,9 @@ Member List
                 <th>{{borrow.BORROW_EXPECTEDRETURNDATE}}</th>
                 <th>{{borrow.BORROW_RETURNDATE}}</th>
                 <th>{{borrow.BORROW_STATUS}}</th>
+                <td>
+                    <a href="{{url('/borrow/detail/'~borrow.BORROW_ID)}}" class="btn btn-info">View Detail</a>
+                </td>
             </tr>
             {% endfor %}
         </tbody>
