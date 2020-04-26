@@ -111,7 +111,7 @@ class SessionController extends ControllerBase
                 {
                     
                 }
-                $this->response->redirect('/book/manage');
+                $this->response->redirect('/user/login');
             }
         }
 

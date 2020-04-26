@@ -18,4 +18,29 @@ class BorrowController extends ControllerBase
     {
         $this->view->books = Borrows::find();
     }
+
+    public function detailAction($id)
+    {
+        $borrow = Borrows::findFirstByBORROW_ID($id);
+
+        $this->view->borrow = $borrow;
+    }
+
+    public function updateAction($id)
+    {
+        $borrow = Borrows::findFirstByBORROW_ID($id);
+
+        $expectedreturndate = $this->request->getPost('expectedreturndate');
+        $status = $this->request->getPost('status');
+
+        $borrow->BORROW_EXPECTEDRETURNDATE = $expectedreturndate;
+        $borrow->BORROW_STATUS = $status;
+
+        $success = $borrow->save();
+        if($success)
+        {
+            $this->response->redirect('/borrow/manage');
+        }
+
+    }
 }

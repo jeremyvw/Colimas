@@ -1,23 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Colimas</title>
-</head>
-
 
 Member List
 
 
-<body>
-    <nav class="navbar navbar-light bg-light">
-        <a href="#" class="navbar-brand">Colimas</a>
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item" class="nav-link">
-                <a href="">Collections</a>
-            </li>
-        </ul>
-    </nav>
-</body>
-</html>
+
+<div class="container">
+    <table class="ui sortable selectable inverted brown celled table">
+        <thead>
+            <tr class="center aligned">
+                <th>ID</th>
+                <th>Name</th>
+                <th>Birthdate</th>
+                <th>Gender</th>
+                <th>Category</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($users as $user) { ?>
+            <tr class="center aligned">
+                <th><?= $user->USER_ID ?></th>
+                <th><?= $user->USER_NAME ?></th>
+                <th><?= $user->USER_BIRTHDATE ?></th>
+                <th><?= $user->USER_GENDER ?></th>
+                <th>
+                    <?php if ($user->USER_CATEGORY != 0) { ?>
+                        <?= $user->USER_CATEGORY ?>
+                    <?php } ?>
+                </th>
+            </tr>
+            <?php } ?>
+        </tbody>
+    </table>
+</div>

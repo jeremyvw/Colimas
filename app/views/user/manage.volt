@@ -1,4 +1,3 @@
-{% extends 'template/layout.volt' %}
 {% block title %}
 Member List
 {% endblock %}
@@ -22,7 +21,11 @@ Member List
                 <th>{{user.USER_NAME}}</th>
                 <th>{{user.USER_BIRTHDATE}}</th>
                 <th>{{user.USER_GENDER}}</th>
-                <th><th>{{user.USER_CATEGORY}}</th></th>
+                <th>
+                    {% if user.USER_CATEGORY!=0 %}
+                        {{user.USER_CATEGORY}}
+                    {% endif %}
+                </th>
             </tr>
             {% endfor %}
         </tbody>
