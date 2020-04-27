@@ -30,6 +30,7 @@
             <select name="status" class="ui dropdown">
                 <option value="Pending">Pending</option>
                 <option value="Accepted">Accepted</option>
+                <option value="Finished">Finished</option>
             </select>
         </div>
         <input type="submit" value="Save changes" class="btn btn-success">
