@@ -33,9 +33,10 @@
                     <a href="<?= $this->url->get('/user/manage') ?>" class="nav-link">Members</a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?= $this->url->get('/session/logout') ?>" class="nav-link"></a>
-                    <i class="fas fa-sign-out-alt"></i>
-                    <span>Logout</span>
+                    <a href="<?= $this->url->get('/session/logout') ?>" class="nav-link">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Logout</span>
+                    </a>
                 </li>
             </ul>
             <?php } else { ?>
