@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Colimas</title>
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgba(150, 180, 255, 1);">
-        <a href="<?= $this->url->get('/') ?>" class="navbar-brand">Logo</a>
+        <a href="<?= $this->url->get('/') ?>" class="navbar-brand"><img src="/img/logo-small-navbar-resize.png" width="120" height="50" alt=""></a>
         <button class="navbar-toggler" data-toogle="collapse" data-target="#navbarMenu">
             <span class="navbar-toggler-icon"></span>
         </button>
