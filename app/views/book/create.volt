@@ -1,3 +1,4 @@
+{% extends 'template/layout.volt' %}
 {% block content %}
 <div class="container">
         <form method="POST" action="{{url('/book/add')}}" enctype="multipart/form-data" class="ui form">

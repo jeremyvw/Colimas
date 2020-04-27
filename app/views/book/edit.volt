@@ -1,3 +1,4 @@
+{% extends 'template/layout.volt' %}
 {% block content %}
 <div class="container">
         <form method="POST" autocomplete="off" action="{{url('/book/update/'~book.BOOK_ID)}}" enctype="multipart/form-data" class="ui form">
