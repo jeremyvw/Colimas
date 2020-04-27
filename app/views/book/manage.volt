@@ -16,7 +16,7 @@
                 <th>Title</th>
                 <th>Year</th>
                 <th>Shelf</th>
-                <th>Number of pages</th>
+                <th>Pages</th>
                 <th>Status</th>
                 <th>Count</th>
                 <th>Author ID</th>
@@ -40,7 +40,7 @@
                 <td>{{book.CATEGORY_ID}}</td>
                 {% if session.get('auth') %}
                 <td>
-                    <a href="{{url('/book/edit/'~book.BOOK_ID)}}" class="btn btn-info"><span class="fas fa-plus"></span>Edit</a>
+                    <a href="{{url('/book/edit/'~book.BOOK_ID)}}" class="btn btn-primary"><span class="fas fa-plus"></span>Edit</a>
                     <a href="{{url('/book/destroy/'~book.BOOK_ID)}}" class="btn btn-danger"><span class="fas fa-plus"></span>Delete</a>
                 </td>
                 {% endif %}
