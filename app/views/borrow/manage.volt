@@ -1,10 +1,9 @@
 {% extends 'template/layout.volt' %}
-{% block title %}
-Requests
-{% endblock %}
-
 {% block content %}
 <div class="container">
+    <div class="card-header">
+        <strong>Request</strong>
+    </div>
     <table class="ui sortable selectable inverted brown celled table">
         <thead>
             <tr class="center aligned">
