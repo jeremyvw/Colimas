@@ -1,15 +1,14 @@
+{% extends 'template/layout.volt' %}
 {% block content %}
 <div class="container">
     <div class="card-header">
         <strong>Collection</strong>
     </div>
+    {% if session.get('auth') %}
     <div class="card-header">
         <a href="{{url('book/create')}}" class="btn btn-primary">Add New Book into Collection</a>
-        <span>{{ session.get('auth')['name'] }}</span><span>
-        <form action="{{url('/session/logout')}}">
-            <input type="submit" value="Logout" class="btn btn-danger">
-        </form>
     </div>
+    {% endif %}
     <table class="ui sortable selectable inverted brown celled table">
         <thead>
             <tr>
@@ -22,7 +21,9 @@
                 <th>Count</th>
                 <th>Author ID</th>
                 <th>Category ID</th>
+                {% if session.get('auth') %}
                 <th>Action</th>
+                {% endif %}
             </tr>
         </thead>
         <tbody>
@@ -37,10 +38,12 @@
                 <td>{{book.BOOK_COUNT}}</td>
                 <td>{{book.AUTHOR_ID}}</td>
                 <td>{{book.CATEGORY_ID}}</td>
+                {% if session.get('auth') %}
                 <td>
                     <a href="{{url('/book/edit/'~book.BOOK_ID)}}" class="btn btn-info"><span class="fas fa-plus"></span>Edit</a>
-                    <a href="{{url('/book/destroy/'~book.BOOK_ID)}}" class="btn btn-danger"><span class="fas fa-plus"></span>Hapus</a>
+                    <a href="{{url('/book/destroy/'~book.BOOK_ID)}}" class="btn btn-danger"><span class="fas fa-plus"></span>Delete</a>
                 </td>
+                {% endif %}
             </tr>
             {% endfor %}
         </tbody>
