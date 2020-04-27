@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- {{ assets.outputCss() }} -->
     <title>Colimas</title>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgba(150, 180, 255, 1);">
         <a href="#" class="navbar-brand">Logo</a>
         <button class="navbar-toggler" data-toogle="collapse" data-target="#navbarMenu">
             <span class="navbar-toggler-icon"></span>
@@ -21,9 +21,13 @@
                 <li class="nav-item">
                     <a href="{{url('/user/manage')}}" class="nav-link">Members</a>
                 </li>
+                <!-- <li class="nav-item">
+                    <a href="{{url('/user/login')}}" class="nav-link">Login</a>
+                </li> -->
             </ul>
         </div>
         <div class="collapse navbar-collapse">
+            {% if session.get('auth') %}
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <span class="nav-link">Welcome, {{session.get('auth')['name']}}</span>
@@ -34,6 +38,13 @@
                     <span>Logout</span>
                 </li>
             </ul>
+            {% else %}
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="{{url('/user/login')}}" class="nav-link">Login</a>
+                </li>
+            </ul>
+            {% endif %}
         </div>
     </nav>
 </head>
