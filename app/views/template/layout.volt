@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+    {{ assets.outputCss() }}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- {{ assets.outputCss() }} -->
     <title>Colimas</title>
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgba(150, 180, 255, 1);">
         <a href="{{url('/')}}" class="navbar-brand">Logo</a>
@@ -33,15 +33,19 @@
                     <a href="{{url('/user/manage')}}" class="nav-link">Members</a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{url('/session/logout')}}" class="nav-link"></a>
-                    <i class="fas fa-sign-out-alt"></i>
-                    <span>Logout</span>
+                    <a href="{{url('/session/logout')}}" class="nav-link">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Logout</span>
+                    </a>
                 </li>
             </ul>
             {% else %}
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <a href="{{url('/user/login')}}" class="nav-link">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{url('/user/register')}}" class="nav-link">Register</a>
                 </li>
             </ul>
             {% endif %}

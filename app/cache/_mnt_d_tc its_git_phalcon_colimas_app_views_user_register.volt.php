@@ -48,11 +48,12 @@
         </div>
     </nav>
 </head>
+
 <body>
 <div class="limiter">
-    <div class="container-login100">
+    <div class="container-register100">
         <form method="POST" autocomplete="off" action="<?= $this->url->get('/session/register') ?>" enctype="multipart/form-data" class="login100-form validate-form">
-            <span class="login100-form-title">Register</span><br>
+            <span class="register100-form-title">Register</span>
             <div class="wrap-input100 validate-input p-bp10">
                 <label for="username">Username</label>
                 <input type="text" class="form-control" name="username" placeholder="Ex: myusername" required>
