@@ -1,6 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <?= $this->assets->outputCss() ?>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colimas</title>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgba(150, 180, 255, 1);">
+        <a href="<?= $this->url->get('/') ?>" class="navbar-brand">Logo</a>
+        <button class="navbar-toggler" data-toogle="collapse" data-target="#navbarMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMenu">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="<?= $this->url->get('/') ?>" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?= $this->url->get('/book/manage') ?>" class="nav-link">Collections</a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a href="<?= $this->url->get('/user/login') ?>" class="nav-link">Login</a>
+                </li> -->
+            </ul>
+        </div>
+        <div class="collapse navbar-collapse">
+            <?php if ($this->session->get('auth')) { ?>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <span class="nav-link">Welcome, <?= $this->session->get('auth')['name'] ?></span>
+                </li>
+                <li class="nav-item">
+                    <a href="<?= $this->url->get('/user/manage') ?>" class="nav-link">Members</a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?= $this->url->get('/session/logout') ?>" class="nav-link">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Logout</span>
+                    </a>
+                </li>
+            </ul>
+            <?php } else { ?>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="<?= $this->url->get('/user/login') ?>" class="nav-link">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?= $this->url->get('/user/register') ?>" class="nav-link">Register</a>
+                </li>
+            </ul>
+            <?php } ?>
+        </div>
+    </nav>
+</head>
 
+
+
+
+<body>
+    
 <div class="container">
-        <form method="POST" action="<?= $this->url->get('/book/add') ?>" enctype="multipart/form-data" class="ui form">
+        <form method="POST" action="<?= $this->url->get('/book/add') ?>" enctype="multipart/form-data" class="">
             <div class="form-group row">
                 <label for="title">Title</label>
                     <div class="col-sm-10">
@@ -15,15 +74,16 @@
             </div>
             <div class="form-group row">
                 <label for="shelf">Shelf</label>
-                    <div class="col-sm-10">
-                        <input type="text" name="shelf" placeholder="Ex: 1" required>
-                    </div>
+                <div class="col-sm-10">
+                    <input type="text" name="shelf" placeholder="Ex: 1" required>
+                </div>
             </div>
             <div class="form-group row">
-                <label for="description">Description</label>
-                <div class="col-sm-10">
-                    <textarea class="form-control" rows="2" name="description" placeholder="Ex: This book can help us understanding..."></textarea>
-                </div>
+                <label for="description">Description</label><br>
+            </div>
+            <div class="form-group row">
+                <textarea class="form-control" rows="2" name="description" placeholder="Ex: This book can help us understanding...">    
+                </textarea>
             </div>
             <div class="form-group row">
                 <label for="pagecount">Number of pages</label>
@@ -40,7 +100,9 @@
             </div>
             <div class="form-group row">
                 <label for="count">Count</label>
-                <input type="text" name="count" placeholder="Ex: 2" required>
+                <div class="col-sm-10">
+                    <input type="text" name="count" placeholder="Ex: 2" required>
+                </div>
             </div>
             <div class="form-group row">
                 <label for="coverimage">Cover Image</label>
@@ -64,6 +126,9 @@
                 </select>
             </div>
             
-            <input type="submit" value="Add Book to Collections" class="btn btn-success">
+            <input type="submit" value="Add Book to Collections" class="btn btn-primary">
         </form>
 </div>
+
+</body>
+</html>
