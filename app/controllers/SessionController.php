@@ -47,7 +47,7 @@ class SessionController extends ControllerBase
                             'category' => $user->USER_CATEGORY,
                         ]
                     );
-                    $this->response->redirect('/book/manage');
+                    $this->response->redirect('/');
                 }
                 else
                 {
@@ -57,14 +57,14 @@ class SessionController extends ControllerBase
         else
         {
             $this->flashSession->error('Incorrect Email');
-            $this->response->redirect('/');
+            $this->response->redirect('/user/login');
         }    
     }
 
     public function logoutAction()
     {
         $this->session->destroy();
-        $this->response->redirect('/user/login');
+        $this->response->redirect('/');
     }
 
     public function registerAction()
