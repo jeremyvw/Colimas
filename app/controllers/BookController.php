@@ -54,14 +54,15 @@ class BookController extends ControllerBase
             $book->BOOK_STATUS = $this->request->getPost('status');
             $book->BOOK_COUNT = $this->request->getPost('count');
             
-            $path = '/img/books/'.$book->BOOK_TITLE.'.jpg';
+            // $path = '/img/books/'.$book->BOOK_TITLE.'.jpg';
             if($this->request->hasFiles())
             {
                 $image = $this->request->getUploadedFiles()[0];
+                $path = 'img/books/'.$image->getName();
+                $book->BOOK_COVERIMAGE = $path;
                 $image->moveTo($path);
             }
 
-            $book->BOOK_COVERIMAGE = $path;
 
             // $book->BOOK_COVERIMAGE = 'books/'.$book->BOOK_ID.'.jpg';
             // if ($this->request->hasFiles()){
@@ -126,10 +127,12 @@ class BookController extends ControllerBase
         $status = $this->request->getPost('status');
         $count = $this->request->getPost('count');
         
-        $pathfile = 'books/'.$id.'.jpg';
-        if ($this->request->hasFiles()){
+        if($this->request->hasFiles())
+        {
             $image = $this->request->getUploadedFiles()[0];
-            $image->moveTo($pathfile);
+            $path = 'img/books/'.$image->getName();
+            $book->BOOK_COVERIMAGE = $path;
+            $image->moveTo($path);
         }
 
         $authorid = $this->request->getPost('authorid');
