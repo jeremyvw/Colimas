@@ -1,3 +1,4 @@
+{% extends 'template/layout.volt' %}
 {% block title %}
 Requests
 {% endblock %}
