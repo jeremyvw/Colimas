@@ -1,25 +1,46 @@
 
 <!DOCTYPE html>
 <html lang="en">
+    <?= $this->assets->outputCss() ?>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>Login</title>
     </head>
+
     <body>
-        
-        <form method="POST" autocomplete="off" action="<?= $this->url->get('/session/login') ?>">
-            <div class="form-group">
-                <label for="email">E-mail</label>
-                <input type="email" name="email" class="form-control" placeholder="123@example.com">
+        <div class="limiter">
+            <div class="container-login100">
+                <div class="wrap-login100">
+                    <form class="login100-form validate-form" method="POST" autocomplete="off" action="<?= $this->url->get('/session/login') ?>">
+                        <span class="login100-from-title">Login</span>
+                        <div class="wrap-input100 validate-input">
+                            <label for="email">E-mail</label>
+                            <input class="input100" type="email" name="email" placeholder="123@example.com" required>
+                            <span class="symbol-input100"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                        </div>
+                        <div class="wrap-input100 validate-input">
+                            <label for="password">Password</label>
+                            <input class="input100" type="password" name="password" required>
+                            <span class="symbol-input100"><i class="fa fa-lock" aria-hidden="true"></i></span>
+                        </div>
+                        <div class="container-login100-form-btn">
+                            <button type="submit" class="login100-form-btn">Sign In</button>
+                        </div>
+                        <div class="text-center p-t-23 p-b-70">
+                            <span class="txt1">Don't have an account yet?</span>
+                                <a class="txt2" href="<?= $this->url->get('auth/register') ?>">
+                                    Create your account
+                                    <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+                                </a>
+                        </div>
+                    </form>
+
+                </div>
+
             </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" name="password" class="form-control">
-            </div>
-            <button type="submit" class="btn btn-primary">Sign In</button>
-        </form>
-        
-        
+
+        </div>
     </body>
+
 </html>
