@@ -1,52 +1,48 @@
+<?= $this->assets->outputCss() ?>
 
-<div class="container">
-    <form method="POST" autocomplete="off" action="<?= $this->url->get('/session/register') ?>" enctype="multipart/form-data" class="ui form">
-        <div class="form-group row">
-            <label for="username">Username</label>
-                <div class="col-sm-10">
-                    <input type="text" name="username" placeholder="Ex: myusername" required>
-                </div>
-        </div>
-        <div class="form-group row">
-            <label for="year">Password</label>
-                <div class="col-sm-10">
-                    <input type="password" name="password" required>
-                </div>
-        </div>
-        <div class="form-group row">
-            <label for="shelf">Email</label>
-                <div class="col-sm-10">
-                    <input type="email" name="email" placeholder="Ex: 123@example.com" required>
-                </div>
-        </div>
-        <div class="form-group row">
-            <label for="name">Name</label>
-            <div class="col-sm-10">
-                <input type="text" name="name" placeholder="Victor Delacroix" required>
+<div class="limiter">
+    <div class="container-login100">
+        <form method="POST" autocomplete="off" action="<?= $this->url->get('/session/register') ?>" enctype="multipart/form-data" class="login100-form validate-form">
+            <span class="login100-form-title">Register</span><br>
+            <div class="wrap-input100 validate-input p-bp10">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" name="username" placeholder="Ex: myusername" required>
             </div>
-        </div>
-        <div class="form-group row">
-            <label for="birthdate">Birthdate</label>
-            <div class="col-sm-10">
-                <input type="date" name="birthdate" required>
+            <div class="wrap-input100 validate-input p-bp10">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" name="password" required>
             </div>
-        </div>
-        <div class="form-group">
-            <label for="gender">Gender</label><br>
-            <input type="radio" name="gender" id="male" value="male">
-            <label for="gender">Male</label><br>
-            <input type="radio" name="gender" id="female" value="female">
-            <label for="gender">Female</label><br>
-        </div>
-        <div class="form-group row">
-            <label for="category">Category</label>
-            <input type="text" name="category" placeholder="Ex: 0" required>
-        </div>
-        <div class="form-group row">
-            <label for="profile">Profile</label>
-            <input type="file" class="form-control-file" name="profile" required>
-        </div>
-        
-        <input type="submit" value="Register" class="btn btn-success">
-    </form>
+            <div class="wrap-input100 validate-input p-bp10">
+                <label for="email">Email</label>
+                <input type="email" name="email" class="form-control" placeholder="Ex: 123@example.com" required>
+            </div>
+            <div class="wrap-input100 validate-input p-bp10">
+                <label for="name">Name</label>
+                <input type="text" name="name" class="form-control" placeholder="Victor Delacroix" required>
+            </div>
+            <div class="wrap-input100 validate-input p-bp10">
+                <label for="birthdate">Birthdate</label>
+                <input type="date" class="form-control" name="birthdate" required>
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender</label><br>
+                <input type="radio" name="gender" id="male" value="Male">
+                <label for="gender">Male</label><br>
+                <input type="radio" name="gender" id="female" value="Female">
+                <label for="gender">Female</label><br>
+            </div>
+            <div class="wrap-input100 validate-input p-bp10">
+                <label for="category">Category</label>
+                <input type="text" class="form-control" name="category" placeholder="Ex: 0" required>
+            </div>
+            <div class="wrap-input100 validate-input p-bp10">
+                <label for="profile">Profile</label>
+                <input type="file" class="form-control-file" name="profile" required>
+            </div>
+            <div class="container-login100-form-btn">
+                <!-- <input type="submit" value="Register" class="btn btn-success"> -->
+                <button type="submit" class="login100-form-btn">Register</button>
+            </div>
+        </form>
+    </div>
 </div>
