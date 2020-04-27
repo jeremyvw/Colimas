@@ -79,12 +79,12 @@ class SessionController extends ControllerBase
         $gender = $this->request->getPost('gender');
         $category = $this->request->getPost('category');
         
-        // $path = '/img/users/'.$username.'.jpg';
-        $path = '/img/profiles/'.$username.'.jpg';
         if($this->request->hasFiles())
         {
             $image = $this->request->getUploadedFiles()[0];
-            // $image->moveTo($path);
+            $path = 'img/profiles/'.$image->getName();
+            $user->USER_PHOTO = $path;
+            $image->moveTo($path);
         }
 
         if($password != "")
