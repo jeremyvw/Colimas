@@ -1,7 +1,7 @@
 {% extends 'template/layout.volt' %}
 {% block content %}
 <div class="container">
-        <form method="POST" action="{{url('/book/add')}}" enctype="multipart/form-data" class="ui form">
+        <form method="POST" action="{{url('/book/add')}}" enctype="multipart/form-data" class="">
             <div class="form-group row">
                 <label for="title">Title</label>
                     <div class="col-sm-10">
@@ -16,15 +16,16 @@
             </div>
             <div class="form-group row">
                 <label for="shelf">Shelf</label>
-                    <div class="col-sm-10">
-                        <input type="text" name="shelf" placeholder="Ex: 1" required>
-                    </div>
+                <div class="col-sm-10">
+                    <input type="text" name="shelf" placeholder="Ex: 1" required>
+                </div>
             </div>
             <div class="form-group row">
-                <label for="description">Description</label>
-                <div class="col-sm-10">
-                    <textarea class="form-control" rows="2" name="description" placeholder="Ex: This book can help us understanding..."></textarea>
-                </div>
+                <label for="description">Description</label><br>
+            </div>
+            <div class="form-group row">
+                <textarea class="form-control" rows="2" name="description" placeholder="Ex: This book can help us understanding...">    
+                </textarea>
             </div>
             <div class="form-group row">
                 <label for="pagecount">Number of pages</label>
@@ -41,7 +42,9 @@
             </div>
             <div class="form-group row">
                 <label for="count">Count</label>
-                <input type="text" name="count" placeholder="Ex: 2" required>
+                <div class="col-sm-10">
+                    <input type="text" name="count" placeholder="Ex: 2" required>
+                </div>
             </div>
             <div class="form-group row">
                 <label for="coverimage">Cover Image</label>
@@ -65,7 +68,7 @@
                 </select>
             </div>
             
-            <input type="submit" value="Add Book to Collections" class="btn btn-success">
+            <input type="submit" value="Add Book to Collections" class="btn btn-primary">
         </form>
 </div>
 {% endblock %}
