@@ -1,15 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <?= $this->assets->outputCss() ?> -->
+    <title>Colimas</title>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgba(150, 180, 255, 1);">
+        <a href="#" class="navbar-brand">Logo</a>
+        <button class="navbar-toggler" data-toogle="collapse" data-target="#navbarMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMenu">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?= $this->url->get('/book/manage') ?>" class="nav-link">Collections</a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?= $this->url->get('/user/manage') ?>" class="nav-link">Members</a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a href="<?= $this->url->get('/user/login') ?>" class="nav-link">Login</a>
+                </li> -->
+            </ul>
+        </div>
+        <div class="collapse navbar-collapse">
+            <?php if ($this->session->get('auth')) { ?>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <span class="nav-link">Welcome, <?= $this->session->get('auth')['name'] ?></span>
+                </li>
+                <li class="nav-item">
+                    <a href="<?= $this->url->get('/session/logout') ?>" class="nav-link"></a>
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </li>
+            </ul>
+            <?php } else { ?>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="<?= $this->url->get('/user/login') ?>" class="nav-link">Login</a>
+                </li>
+            </ul>
+            <?php } ?>
+        </div>
+    </nav>
+</head>
 
+
+
+
+<body>
+    
 <div class="container">
     <div class="card-header">
         <strong>Collection</strong>
     </div>
+    <?php if ($this->session->get('auth')) { ?>
     <div class="card-header">
         <a href="<?= $this->url->get('book/create') ?>" class="btn btn-primary">Add New Book into Collection</a>
-        <span><?= $this->session->get('auth')['name'] ?></span><span>
-        <form action="<?= $this->url->get('/session/logout') ?>">
-            <input type="submit" value="Logout" class="btn btn-danger">
-        </form>
     </div>
+    <?php } ?>
     <table class="ui sortable selectable inverted brown celled table">
         <thead>
             <tr>
@@ -22,7 +75,9 @@
                 <th>Count</th>
                 <th>Author ID</th>
                 <th>Category ID</th>
+                <?php if ($this->session->get('auth')) { ?>
                 <th>Action</th>
+                <?php } ?>
             </tr>
         </thead>
         <tbody>
@@ -37,12 +92,17 @@
                 <td><?= $book->BOOK_COUNT ?></td>
                 <td><?= $book->AUTHOR_ID ?></td>
                 <td><?= $book->CATEGORY_ID ?></td>
+                <?php if ($this->session->get('auth')) { ?>
                 <td>
                     <a href="<?= $this->url->get('/book/edit/' . $book->BOOK_ID) ?>" class="btn btn-info"><span class="fas fa-plus"></span>Edit</a>
-                    <a href="<?= $this->url->get('/book/destroy/' . $book->BOOK_ID) ?>" class="btn btn-danger"><span class="fas fa-plus"></span>Hapus</a>
+                    <a href="<?= $this->url->get('/book/destroy/' . $book->BOOK_ID) ?>" class="btn btn-danger"><span class="fas fa-plus"></span>Delete</a>
                 </td>
+                <?php } ?>
             </tr>
             <?php } ?>
         </tbody>
     </table>
 </div>
+
+</body>
+</html>

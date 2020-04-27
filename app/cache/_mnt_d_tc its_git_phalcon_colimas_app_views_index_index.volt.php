@@ -1,4 +1,4 @@
-a:5:{i:0;s:2156:"<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -49,12 +49,12 @@ a:5:{i:0;s:2156:"<!DOCTYPE html>
     </nav>
 </head>
 
-";s:5:"title";a:1:{i:0;a:4:{s:4:"type";i:357;s:5:"value";s:1:"
-";s:4:"file";s:64:"/mnt/d/TC ITS/git/phalcon_colimas/app/views/template/layout.volt";s:4:"line";i:53;}}i:1;s:13:"
+
+
 
 <body>
-    ";s:7:"content";a:1:{i:0;a:4:{s:4:"type";i:357;s:5:"value";s:5:"
-    ";s:4:"file";s:64:"/mnt/d/TC ITS/git/phalcon_colimas/app/views/template/layout.volt";s:4:"line";i:57;}}i:2;s:17:"
+    
+<h1>Buenos Dias Fuccboi</h1>
+
 </body>
 </html>
-";}
