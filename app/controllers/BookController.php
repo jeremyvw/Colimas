@@ -146,7 +146,6 @@ class BookController extends ControllerBase
         $book->BOOK_PAGECOUNT = $pagecount;
         $book->BOOK_STATUS = $status;
         $book->BOOK_COUNT = $count;
-        $book->BOOK_COVERIMAGE = $pathfile;
 
         $book->AUTHOR_ID = $authorid;
         $book->CATEGORY_ID = $categoryid;
