@@ -29,14 +29,22 @@ class Books extends Model
 
         $this->belongsTo(
             'AUTHOR_ID',
-            'Authors',
-            'AUTHOR_ID'
+            Authors::class,
+            'AUTHOR_ID',
+            [
+                'reusable' => true,
+                'alias' => 'authors'
+            ]
         );
 
         $this->belongsTo(
             'CATEGORY_ID',
-            'Categories',
-            'CATEGORY_ID'
+            Categories::class,
+            'CATEGORY_ID',
+            [
+                'reusable' => true,
+                'alias' => 'categories'
+            ]
         );
     }
 }
