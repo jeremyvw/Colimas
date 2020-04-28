@@ -19,8 +19,8 @@
                 <th>Pages</th>
                 <th>Status</th>
                 <th>Count</th>
-                <th>Author ID</th>
-                <th>Category ID</th>
+                <th>Author</th>
+                <th>Category</th>
                 {% if session.get('auth') %}
                 <th>Action</th>
                 {% endif %}
@@ -36,8 +36,8 @@
                 <td>{{book.BOOK_PAGECOUNT}}</td>
                 <td>{{book.BOOK_STATUS}}</td>
                 <td>{{book.BOOK_COUNT}}</td>
-                <td>{{book.AUTHOR_ID}}</td>
-                <td>{{book.CATEGORY_ID}}</td>
+                <td>{{book.authors.AUTHOR_NAME}}</td>
+                <td>{{book.categories.CATEGORY_NAME}}</td>
                 {% if session.get('auth') %}
                 <td>
                     <a href="{{url('/book/edit/'~book.BOOK_ID)}}" class="btn btn-primary"><span class="fas fa-plus"></span>Edit</a>

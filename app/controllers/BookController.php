@@ -18,14 +18,14 @@ class BookController extends ControllerBase
     public function manageAction()
     {
         $this->view->books = Books::find();
-        
+
     }
 
     public function createAction()
     {
         $this->view->authors = Authors::find();
         $this->view->categories = Categories::find();
-
+        
     }
 
     public function addAction()
