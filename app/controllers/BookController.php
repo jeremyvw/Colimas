@@ -25,7 +25,7 @@ class BookController extends ControllerBase
     {
         $this->view->authors = Authors::find();
         $this->view->categories = Categories::find();
-        
+
     }
 
     public function addAction()
@@ -129,6 +129,7 @@ class BookController extends ControllerBase
         
         if($this->request->hasFiles())
         {
+            unlink($book->BOOK_COVERIMAGE);
             $image = $this->request->getUploadedFiles()[0];
             $path = 'img/books/'.$image->getName();
             $book->BOOK_COVERIMAGE = $path;
