@@ -115,9 +115,14 @@
             </div>
             <div class="form-group row">
                 <label for="coverimage">Cover Image</label>
-                <img src="<?= $this->url->get($book->BOOK_COVERIMAGE) ?>">
+            </div>
+            <div class="form-group row">
+                <img src="<?= $this->url->get($book->BOOK_COVERIMAGE) ?>" width="150" height="225">
+            </div>
+            <div class="form-group row">
                 <input type="file" name="coverimage">
             </div>
+
             <div class="form-group row">
                 <label for="authorid">Author</label>
                 <select name="authorid" class="form-control">
