@@ -25,14 +25,22 @@ class Borrows extends Model
 
         $this->belongsTo(
             'BOOK_ID',
-            'Books',
-            'BOOK_ID'
+            Books::class,
+            'BOOK_ID',
+            [
+                'reusable' => true,
+                'alias' => 'books'
+            ]
         );
 
         $this->belongsTo(
             'USER_ID',
-            'Users',
-            'USER_ID'
+            Users::class,
+            'USER_ID',
+            [
+                'reusable' => true,
+                'alias' => 'users'
+            ]
         );
     }
 }
