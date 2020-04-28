@@ -69,8 +69,9 @@
         <thead>
             <tr class="center aligned">
                 <th>ID</th>
-                <th>Book ID</th>
-                <th>User ID</th>
+                <th>Book</th>
+                <th>Member</th>
+                <th>Member Category</th>
                 <th>Start Date</th>
                 <th>Expected Return</th>
                 <th>Return Date</th>
@@ -82,8 +83,9 @@
             <?php foreach ($borrows as $borrow) { ?>
             <tr class="center aligned">
                 <th><?= $borrow->BORROW_ID ?></th>
-                <th><?= $borrow->BOOK_ID ?></th>
-                <th><?= $borrow->USER_ID ?></th>
+                <th><?= $borrow->books->BOOK_TITLE ?></th>
+                <th><?= $borrow->users->USER_NAME ?></th>
+                <th><?= $borrow->users->USER_CATEGORY ?></th>
                 <th><?= $borrow->BORROW_STARTDATE ?></th>
                 <th><?= $borrow->BORROW_EXPECTEDRETURNDATE ?></th>
                 <th><?= $borrow->BORROW_RETURNDATE ?></th>
