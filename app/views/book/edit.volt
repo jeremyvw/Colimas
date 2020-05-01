@@ -30,7 +30,7 @@
                 <label for="description">Description</label>
             </div>
             <div class="form-group row">
-                <textarea cols="100" rows="2" name="description" placeholder="Ex: This book can help us understanding..." value="{{book.BOOK_DESCRIPTION}}">{{book.BOOK_DESCRIPTION}}
+                <textarea cols="150" rows="3" name="description" placeholder="Ex: This book can help us understanding..." value="{{book.BOOK_DESCRIPTION}}">{{book.BOOK_DESCRIPTION}}
                 </textarea>
             </div>
             <div class="form-group row">
@@ -42,6 +42,7 @@
             <div class="form-group row">
                 <label for="status">Status</label>
                 <select name="status" class="form-control">
+                    <!-- <option value="{{book.BOOK_STATUS}}">{{book.BOOK_STATUS}}</option> -->
                     <option value="Available">Available</option>
                     <option value="Not Available">Not Available</option>
                 </select>
@@ -65,14 +66,18 @@
             <div class="form-group row">
                 <label for="authorid">Author</label>
                 <select name="authorid" class="form-control">
+                    <option value="{{book.authors.AUTHOR_ID}}">{{book.authors.AUTHOR_NAME}}</option>
                     {% for author in authors %}
-                        <option value="{{author.AUTHOR_ID}}">{{author.AUTHOR_NAME}}</option>
+                        {% if authors.AUTHOR_ID != book.authors.AUTHOR_ID %}
+                            <option value="{{author.AUTHOR_ID}}">{{author.AUTHOR_NAME}}</option>
+                        {% endif %}
                     {% endfor %}
                 </select>
             </div>
             <div class="form-group row">
                 <label for="categoryid">Category</label>
                 <select name="categoryid" class="form-control">
+                    <option value="{{book.categories.CATEGORY_ID}}">{{book.categories.CATEGORY_NAME}}</option>
                     {% for category in categories %}
                         <option value="{{category.CATEGORY_ID}}">{{category.CATEGORY_NAME}}</option>
                     {% endfor %}
