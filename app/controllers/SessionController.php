@@ -52,6 +52,7 @@ class SessionController extends ControllerBase
                 else
                 {
                     $this->flashSession->error('Incorrect Password');
+                    $this->response->redirect('/user/login');
                 }
         }
         else
@@ -93,6 +94,7 @@ class SessionController extends ControllerBase
             if($checkUser)
             {
                 $this->flashSession->error('Email is already been used');
+                $this->response->redirect('/user/register');
             }
             else
             {

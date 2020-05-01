@@ -54,6 +54,9 @@
             <div class="wrap-login100">
                 <form class="login100-form validate-form" method="POST" autocomplete="off" action="{{url('/session/login')}}">
                     <span class="login100-form-title">Login</span><br>
+                    <div class="wrap-input 100 validate-input">
+                        {{ flashSession.output() }}
+                    </div>
                     <div class="wrap-input100 validate-input">
                         <label for="email">E-mail</label>
                         <input class="input10" type="email" name="email" placeholder="123@example.com" required>

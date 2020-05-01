@@ -12,6 +12,8 @@ use Phalcon\Mvc\View\Engine\Volt as VoltEngine;
 use Phalcon\Session\Adapter\Stream as SessionAdapter;
 use Phalcon\Session\Manager as SessionManager;
 use Phalcon\Url as UrlResolver;
+use Phalcon\Flash\Session as FlashSession;
+use Phalcon\Session\Bag;
 
 /**
  * Shared configuration service
@@ -99,22 +101,37 @@ $di->setShared('modelsMetadata', function () {
     return new MetaDataAdapter();
 });
 
-/**
- * Register the session flash service with the Twitter Bootstrap classes
- */
-$di->set('flash', function () {
-    $escaper = new Escaper();
-    $flash = new Flash($escaper);
-    $flash->setImplicitFlush(false);
-    $flash->setCssClasses([
+$di->set('flashSession', function () {
+    // $escaper = new Escaper();
+    $flashSession = new FlashSession();
+    // $flash->setImplicitFlush(false);
+    $flashSession->setCssClasses([
         'error'   => 'alert alert-danger',
         'success' => 'alert alert-success',
         'notice'  => 'alert alert-info',
         'warning' => 'alert alert-warning'
     ]);
 
-    return $flash;
+    return $flashSession;
 });
+
+/**
+ * Register the session flash service with the Twitter Bootstrap classes
+ */
+// $di->set('flash', function () {
+//     $escaper = new Escaper();
+//     $flash = new Flash($escaper);
+//     $flash->setImplicitFlush(false);
+//     $flash->setCssClasses([
+//         'error'   => 'alert alert-danger',
+//         'success' => 'alert alert-success',
+//         'notice'  => 'alert alert-info',
+//         'warning' => 'alert alert-warning'
+//     ]);
+
+//     return $flash;
+// });
+
 
 /**
  * Start the session the first time some component request the session service

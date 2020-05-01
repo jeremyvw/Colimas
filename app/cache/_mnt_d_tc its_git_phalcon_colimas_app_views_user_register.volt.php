@@ -1,50 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-    {{ assets.outputCss() }}
+    <?= $this->assets->outputCss() ?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Colimas</title>
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgba(150, 180, 255, 1);">
-        <a href="{{url('/')}}" class="navbar-brand"><img src="/img/logo-small-navbar-resize.png" width="120" height="50" alt=""></a>
+        <a href="<?= $this->url->get('/') ?>" class="navbar-brand"><img src="/img/logo-small-navbar-resize.png" width="120" height="50" alt=""></a>
         <button class="navbar-toggler" data-toogle="collapse" data-target="#navbarMenu">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarMenu">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a href="{{url('/')}}" class="nav-link">Home</a>
+                    <a href="<?= $this->url->get('/') ?>" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{url('/book/manage')}}" class="nav-link">Collections</a>
+                    <a href="<?= $this->url->get('/book/manage') ?>" class="nav-link">Collections</a>
                 </li>
                 <!-- <li class="nav-item">
-                    <a href="{{url('/user/login')}}" class="nav-link">Login</a>
+                    <a href="<?= $this->url->get('/user/login') ?>" class="nav-link">Login</a>
                 </li> -->
             </ul>
         </div>
         <div class="collapse navbar-collapse">
-            {% if session.get('auth') %}
+            <?php if ($this->session->get('auth')) { ?>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <span class="nav-link">Welcome, {{session.get('auth')['name']}}</span>
+                    <span class="nav-link">Welcome, <?= $this->session->get('auth')['name'] ?></span>
                 </li>
                 <li class="nav-item">
-                    <a href="{{url('/user/manage')}}" class="nav-link">Members</a>
+                    <a href="<?= $this->url->get('/user/manage') ?>" class="nav-link">Members</a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{url('/session/logout')}}" class="nav-link"></a>
+                    <a href="<?= $this->url->get('/session/logout') ?>" class="nav-link"></a>
                     <i class="fas fa-sign-out-alt"></i>
                     <span>Logout</span>
                 </li>
             </ul>
-            {% else %}
+            <?php } else { ?>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a href="{{url('/user/login')}}" class="nav-link">Login</a>
+                    <a href="<?= $this->url->get('/user/login') ?>" class="nav-link">Login</a>
                 </li>
             </ul>
-            {% endif %}
+            <?php } ?>
         </div>
     </nav>
 </head>
@@ -52,10 +52,10 @@
 <body>
 <div class="limiter">
     <div class="container-register100">
-        <form method="POST" autocomplete="off" action="{{url('/session/register')}}" enctype="multipart/form-data" class="login100-form validate-form">
+        <form method="POST" autocomplete="off" action="<?= $this->url->get('/session/register') ?>" enctype="multipart/form-data" class="login100-form validate-form">
             <span class="register100-form-title">Register</span>
             <div class="wrap-input100 validate-input p-bp10">
-                {{ flashSession.output() }}
+                <?= $this->flashSession->output() ?>
             </div>
             <div class="wrap-input100 validate-input p-bp10">
                 <label for="username">Username</label>
