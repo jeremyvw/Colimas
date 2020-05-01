@@ -39,8 +39,9 @@ class BorrowController extends ControllerBase
         $success = $borrow->save();
         if($success)
         {
-            $this->response->redirect('/borrow/manage');
+            $this->flashSession->success('Request has been successfully modified.');
         }
+        $this->response->redirect('/borrow/manage');
 
     }
 }

@@ -62,7 +62,10 @@
 <body>
     
 <div class="container">
-    Edit Request
+    <div class="page-header" style="text-align: center;">
+        <h2>Request Detail</h2>
+    </div>
+    <br>
     <form method="POST" autocomplete="off" action="<?= $this->url->get('/borrow/update/' . $borrow->BORROW_ID) ?>" enctype="multipart/form-data" class="ui form">
         <div class="form-group row">
             <label for="id">ID</label>

@@ -62,6 +62,10 @@
 <body>
     
 <div class="container">
+    <div class="page-header" style="text-align: center;">
+        <h2>Edit Book Information</h2>
+    </div>
+    <br>
         <form method="POST" autocomplete="off" action="<?= $this->url->get('/book/update/' . $book->BOOK_ID) ?>" enctype="multipart/form-data" class="ui form">
             <div class="form-group row">
                 <label for="id">ID</label>

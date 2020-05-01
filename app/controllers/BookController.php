@@ -46,15 +46,22 @@ class BookController extends ControllerBase
         // }
         // else
         // {
-            $book->BOOK_TITLE = $this->request->getPost('title');
-            $book->BOOK_YEAR = $this->request->getPost('year');
-            $book->BOOK_SHELF = $this->request->getPost('shelf');
-            $book->BOOK_DESCRIPTION = $this->request->getPost('description');
-            $book->BOOK_PAGECOUNT = $this->request->getPost('pagecount');
-            $book->BOOK_STATUS = $this->request->getPost('status');
-            $book->BOOK_COUNT = $this->request->getPost('count');
+            $title = $this->request->getPost('title');
+            $year = $this->request->getPost('year');
+            $shelf = $this->request->getPost('shelf');
+            $description = $this->request->getPost('description');
+            $pagecount = $this->request->getPost('pagecount');
+            $status = $this->request->getPost('status');
+            $count = $this->request->getPost('count');
+
+            // $book->BOOK_TITLE = $this->request->getPost('title');
+            // $book->BOOK_YEAR = $this->request->getPost('year');
+            // $book->BOOK_SHELF = $this->request->getPost('shelf');
+            // $book->BOOK_DESCRIPTION = $this->request->getPost('description');
+            // $book->BOOK_PAGECOUNT = $this->request->getPost('pagecount');
+            // $book->BOOK_STATUS = $this->request->getPost('status');
+            // $book->BOOK_COUNT = $this->request->getPost('count');
             
-            // $path = '/img/books/'.$book->BOOK_TITLE.'.jpg';
             if($this->request->hasFiles())
             {
                 $image = $this->request->getUploadedFiles()[0];
@@ -63,44 +70,40 @@ class BookController extends ControllerBase
                 $image->moveTo($path);
             }
 
+            $authorid = $this->request->getPost('authorid');
+            $categoryid = $this->request->getPost('categoryid');
 
-            // $book->BOOK_COVERIMAGE = 'books/'.$book->BOOK_ID.'.jpg';
-            // if ($this->request->hasFiles()){
-            //     $image = $this->request->getUploadedFiles()[0];
-            //     $image->moveTo($book->BOOK_COVERIMAGE);
-            // }
+            // $book->AUTHOR_ID = $this->request->getPost('authorid');
+            // $book->CATEGORY_ID = $this->request->getPost('categoryid');
     
-            $book->AUTHOR_ID = $this->request->getPost('authorid');
-            $book->CATEGORY_ID = $this->request->getPost('categoryid');
-    
-            $success = $book->save();
-    
-            if($success)
+            $checkBookTitle = Books::findFirst("BOOK_TITLE = '$title'");
+
+            if($checkBookTitle)
             {
-                // $this->flashSession('Book has been successfully added into collection.');
-                $this->response->redirect('/book/manage');
+                $this->flashSession->error('Book title already exist.'); 
+                $this->response->redirect('/book/create');  
             }
-
-            // if ($book->save() === false)
-            // {
-            //     echo 'Pfft';
-            // }
-            // else
-            // {
-            //     $this->view->books = $book;
-            //     $this->response->redirect('book/manage');
-            // }
-
-        // }
-
-
-        // if($success)
-        // {
-        //     $this->flasSession->success("Book successfully added into collections"); 
-        //     $this->response->redirect('/book/manage');   
-        // }
-
+            else
+            {
+                $book->BOOK_TITLE = $title;
+                $book->BOOK_YEAR = $year;
+                $book->BOOK_SHELF = $shelf;
+                $book->BOOK_DESCRIPTION = $description;
+                $book->BOOK_PAGECOUNT = $pagecount;
+                $book->BOOK_STATUS = $status;
+                $book->BOOK_COUNT = $count;
+                $book->AUTHOR_ID = $authorid;
+                $book->CATEGORY_ID = $categoryid;
+                
+                $success = $book->save();
         
+                if($success)
+                {
+                    $this->flashSession->success('Book has been successfully added into collection.');
+                }
+                $this->response->redirect('/book/manage');
+            
+            }
     }
 
     public function editAction($id)
