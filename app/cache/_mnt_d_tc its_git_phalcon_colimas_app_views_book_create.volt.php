@@ -11,7 +11,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarMenu">
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <a href="<?= $this->url->get('/') ?>" class="nav-link">Home</a>
                 </li>
@@ -62,7 +62,14 @@
 <body>
     
 <div class="container">
+        <div class="page-header" style="text-align: center;">
+            <h2>Register New Book</h2>
+        </div>
+        <br>
         <form method="POST" action="<?= $this->url->get('/book/add') ?>" enctype="multipart/form-data" class="">
+            <div>
+                <?= $this->flashSession->output() ?>
+            </div>
             <div class="form-group row">
                 <label for="title">Title</label>
                     <div class="col-sm-10">

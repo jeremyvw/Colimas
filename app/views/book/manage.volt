@@ -1,16 +1,19 @@
 {% extends 'template/layout.volt' %}
 {% block content %}
 <div class="container">
-    <div class="card-header">
-        <strong>Collection</strong>
+    <div class="page-header" style="text-align: center;">
+        <h2>Collections</h2>
     </div>
+    <br>
     {% if session.get('auth') %}
-    <div class="card-header">
+    <div class="page-header">
         <a href="{{url('book/create')}}" class="btn btn-primary">Add New Book into Collection</a>
+        <br>
     </div>
     {% endif %}
     <div>
         {{ flashSession.output() }}
+        <br>
     </div>
     <table class="ui sortable selectable inverted brown celled table">
         <thead>

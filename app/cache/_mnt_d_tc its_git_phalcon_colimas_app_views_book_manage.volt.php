@@ -11,7 +11,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarMenu">
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <a href="<?= $this->url->get('/') ?>" class="nav-link">Home</a>
                 </li>
@@ -62,14 +62,20 @@
 <body>
     
 <div class="container">
-    <div class="card-header">
-        <strong>Collection</strong>
+    <div class="page-header" style="text-align: center;">
+        <h2>Collections</h2>
     </div>
+    <br>
     <?php if ($this->session->get('auth')) { ?>
-    <div class="card-header">
+    <div class="page-header">
         <a href="<?= $this->url->get('book/create') ?>" class="btn btn-primary">Add New Book into Collection</a>
+        <br>
     </div>
     <?php } ?>
+    <div>
+        <?= $this->flashSession->output() ?>
+        <br>
+    </div>
     <table class="ui sortable selectable inverted brown celled table">
         <thead>
             <tr>

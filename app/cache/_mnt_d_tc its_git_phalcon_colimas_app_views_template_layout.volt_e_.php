@@ -11,7 +11,7 @@ a:5:{i:0;s:2622:"<!DOCTYPE html>
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarMenu">
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <a href="<?= $this->url->get('/') ?>" class="nav-link">Home</a>
                 </li>

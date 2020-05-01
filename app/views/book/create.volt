@@ -1,6 +1,10 @@
 {% extends 'template/layout.volt' %}
 {% block content %}
 <div class="container">
+        <div class="page-header" style="text-align: center;">
+            <h2>Register New Book</h2>
+        </div>
+        <br>
         <form method="POST" action="{{url('/book/add')}}" enctype="multipart/form-data" class="">
             <div>
                 {{ flashSession.output() }}

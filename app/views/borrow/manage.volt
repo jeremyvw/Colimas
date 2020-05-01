@@ -1,8 +1,12 @@
 {% extends 'template/layout.volt' %}
 {% block content %}
 <div class="container">
-    <div class="card-header">
-        <strong>Request</strong>
+    <div class="page-header" style="text-align: center;">
+        <h2>Borrow Requests</h2>
+    </div>
+    <br>
+    <div>
+        {{ flashSession.output() }}
     </div>
     <table class="ui sortable selectable inverted brown celled table">
         <thead>

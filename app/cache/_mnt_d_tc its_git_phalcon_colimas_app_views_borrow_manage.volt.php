@@ -11,7 +11,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarMenu">
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <a href="<?= $this->url->get('/') ?>" class="nav-link">Home</a>
                 </li>
@@ -62,8 +62,12 @@
 <body>
     
 <div class="container">
-    <div class="card-header">
-        <strong>Request</strong>
+    <div class="page-header" style="text-align: center;">
+        <h2>Borrow Requests</h2>
+    </div>
+    <br>
+    <div>
+        <?= $this->flashSession->output() ?>
     </div>
     <table class="ui sortable selectable inverted brown celled table">
         <thead>

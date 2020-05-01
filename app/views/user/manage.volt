@@ -1,9 +1,10 @@
 {% extends 'template/layout.volt' %}
 {% block content %}
 <div class="container">
-    <div class="card-header">
-        <strong>Member List</strong>
+    <div class="page-header" style="text-align: center;">
+        <h2>Members</h2>
     </div>
+    <br>
     <table class="ui sortable selectable inverted brown celled table">
         <thead>
             <tr class="center aligned">
