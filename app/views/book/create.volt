@@ -2,6 +2,9 @@
 {% block content %}
 <div class="container">
         <form method="POST" action="{{url('/book/add')}}" enctype="multipart/form-data" class="">
+            <div class="card-header">
+                {{ flashSession.output() }}
+            </div>
             <div class="form-group row">
                 <label for="title">Title</label>
                     <div class="col-sm-10">

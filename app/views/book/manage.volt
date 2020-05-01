@@ -9,6 +9,9 @@
         <a href="{{url('book/create')}}" class="btn btn-primary">Add New Book into Collection</a>
     </div>
     {% endif %}
+    <div class="card-header">
+        {{ flashSession.output() }}
+    </div>
     <table class="ui sortable selectable inverted brown celled table">
         <thead>
             <tr>
